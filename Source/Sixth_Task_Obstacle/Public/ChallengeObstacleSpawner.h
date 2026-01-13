@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -17,7 +15,7 @@ public:
 protected:
 	virtual void BeginPlay() override;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Challenge Obstacle Spawner|Properties");
-	int NumberOfActorToSpawn;
+	int NumberOfObstacleToSpawn;
 
 	UPROPERTY(EditAnywhere, Category="Challenge Obstacle Spawner|Data")
 	TArray<UStaticMesh*> MeshList;

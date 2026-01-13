@@ -16,17 +16,15 @@ AChallengeObstacle::AChallengeObstacle()
 
 void AChallengeObstacle::SetObstacleVisual(UStaticMesh* InMesh, UMaterialInterface* InMaterial)
 {
-	ObstacleMesh = InMesh;
-	ObstacleMaterial = InMaterial;
-
-	if (StaticMeshComp)
+	if (InMesh)
 	{
-		StaticMeshComp->SetStaticMesh(ObstacleMesh);
+		StaticMeshComp->SetStaticMesh(InMesh);
+		StaticMeshComp->SetRelativeScale3D(FVector(50.0f));
 	}
 
-	if (ObstacleMaterial)
+	if (InMaterial)
 	{
-		StaticMeshComp->SetMaterial(0, ObstacleMaterial);
+		StaticMeshComp->SetMaterial(0, InMaterial);
 	}
 }
 
@@ -35,21 +33,6 @@ void AChallengeObstacle::BeginPlay()
 	Super::BeginPlay();
 
 	RandomAction();
-}
-
-void AChallengeObstacle::OnConstruction(const FTransform& Transform)
-{
-	Super::OnConstruction(Transform);
-
-	if (ObstacleMesh)
-	{
-		StaticMeshComp->SetStaticMesh(ObstacleMesh);
-	}
-	if (ObstacleMaterial)
-	{
-		StaticMeshComp->SetMaterial(0, ObstacleMaterial);
-	}
-	StaticMeshComp->SetRelativeScale3D(FVector(50.0f));
 }
 
 void AChallengeObstacle::MoveObstacle()

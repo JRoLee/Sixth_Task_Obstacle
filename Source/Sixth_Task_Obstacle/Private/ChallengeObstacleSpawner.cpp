@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "ChallengeObstacleSpawner.h"
 #include "ChallengeObstacle.h"
 
@@ -9,12 +6,11 @@ AChallengeObstacleSpawner::AChallengeObstacleSpawner()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-// Called when the game starts or when spawned
 void AChallengeObstacleSpawner::BeginPlay()
 {
 	Super::BeginPlay();
 
-	for (int i = 0; i < NumberOfActorToSpawn; i++)
+	for (int i = 0; i < NumberOfObstacleToSpawn; i++)
 	{
 		SpawnObstacle();
 	}

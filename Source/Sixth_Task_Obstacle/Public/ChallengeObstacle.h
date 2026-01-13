@@ -16,18 +16,12 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-	virtual void OnConstruction(const FTransform& Transform) override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Challenge Obstacle|Components")
 	USceneComponent* SceneRoot;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Challenge Obstacle|Components")
 	UStaticMeshComponent* StaticMeshComp;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ExposeOnSpawn = true))
-	UStaticMesh* ObstacleMesh;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ExposeOnSpawn = true))
-	UMaterialInterface* ObstacleMaterial;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Challenge Obstacle|Properties");
 	float MoveSpeed = FMath::RandRange(1.0f, 10.0f);
@@ -39,8 +33,8 @@ protected:
 	void MoveObstacle();
 	void DestroyObstacle();
 	void RotateObstacle();
-
 	void RandomAction();
+
 	FRotator GetRandomRotationAxis();
 	FVector GetRandomMoveDirection();
 
