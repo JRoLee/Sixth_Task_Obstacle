@@ -29,6 +29,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Moving Obstacle|Properties")
 	float MaxRange;
 
+	FVector MoveDirection = FVector(-1.0f, 0.0f, 0.0f);
+
 	FVector StartLocation;
 	FVector EndLocation;
 	bool bShouldReturn = false;

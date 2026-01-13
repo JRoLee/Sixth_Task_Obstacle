@@ -14,18 +14,19 @@ AMovingObstacle::AMovingObstacle()
 void AMovingObstacle::BeginPlay()
 {
 	Super::BeginPlay();
+
 	StartLocation = GetActorLocation();
-	EndLocation = GetActorLocation() + FVector(MaxRange, 0.0f, 0.0f);
 }
 
 void AMovingObstacle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	EndLocation = StartLocation + MoveDirection * MaxRange;
 	float ForwardMovedDistance = FVector::Dist(StartLocation, GetActorLocation());
 	float BackwardMovedDistance = FVector::Dist(EndLocation, GetActorLocation());
 
-	FVector DeltaLocation(MoveSpeed * DeltaTime, 0.0f, 0.0f);
+	FVector DeltaLocation = MoveDirection * MoveSpeed * DeltaTime;
 
 	if (ForwardMovedDistance >= MaxRange)
 	{
